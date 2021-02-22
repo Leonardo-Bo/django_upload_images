@@ -1,1 +1,4 @@
 textimage/venv/
+textimage/db.sqlite3
+__pycache__/
+ *.pyc
