@@ -2,7 +2,7 @@ from django.db import models
 
 
 def image_upload_to(instance, filename):
-    return "{}/{}".format(instance.textmodel.pk, filename)
+    return "{}/{}".format(instance.reftext.pk, filename)
 
 
 class TextModel(models.Model):

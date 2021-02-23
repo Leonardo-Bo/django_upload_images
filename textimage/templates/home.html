@@ -1,5 +1,18 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}
+    Home -
+{% endblock title %}
+
+{% block sidenav %}
+{% endblock sidenav %}
 
 {% block content %}
-    <h1>Homepage</h1>
-{% endblock content %}
+    {% for item in items %}
+        <article class="media content-section">
+          <div class="media-body">
+            <h4>Title: <a class="article-title" href="{% url 'detail_item' item.pk %}">{{ item.title }}</a></h4>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Edit Item -
+{% endblock title %}
+
+{% block sidenav%}
+    {% for image in item_images.imagemodel_set.all %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a href="{{image.image.url}}" target="_blank" style="padding-top: 0; padding-right: 0; padding-left: 0; padding-bottom: 10">
+                <img src="{{image.image.url}}" style="height: 120px; width: 175px">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <button class="btn btn-outline-secondary btn-sm" onclick="copyToClipboard('{{ image.image.url }}')">Copy url</button>
+            </div>
+            <div class="col" style="padding-bottom: 30px;">
+                <form method="post" action="{% url 'delete_image' image.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock sidenav %}
+
+{% block content %}
+    <h4>Edit item</h4>
+    <div class="border-top pt-3"></div>
+    <br>
+    <form class="needs-validation" method="POST" novalidate enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+        <label class="form-label">Title*</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="formGroupExampleInput" 
+            name="title" 
+            value="{{ form.title.value }}" 
+            required
+        />
+        </div>
+
+        <div class="mb-3">
+        <label class="form-label">Content*</label>
+        <textarea class="form-control" name="content" style="height: 200px" required>{{ form.content.value }}</textarea>
+        </div>
+
+        <label class="form-label">Upload images</label>
+        <div class="form-inline">
+            <div style="display:inline-block; width: 500px;" id="provo">{{ form.images }}</div>
+            <span style="display:inline-block; width: 20px;"></span>
+            <input 
+                class="btn btn-primary" 
+                type="submit" 
+                id="ajax_upload_images" 
+                name="upload_images" 
+                value="Upload"
+            >
+        </div>
+
+        <br>
+        <button class="btn btn-outline-success">Done</button>
+        <a href="{% url 'detail_item' textmodel.pk %}" class="btn btn-outline-dark float-right">Cancel</a>
+    </form>
+{% endblock content %}
+
+{% block javascript %}
+{% endblock javascript %}

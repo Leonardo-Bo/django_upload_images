@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Create Item -
+{% endblock title %}
+
+{% block content %}
+    <h4>Create item</h4>
+    <div class="border-top pt-3"></div>
+    <br>
+    {% comment %} <div class="form-group no-gutters col-8 p-0"> {% endcomment %}
+        <form class="needs-validation" method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Title*</label>
+                <input type="text" class="form-control" id="a2" name="title" required>
+            </div>
+
+            <br>
+            <button class="btn btn-outline-dark">Add</button>
+        </form>
+    {% comment %} </div> {% endcomment %}
+{% endblock content %}
+
+{% block javascript %}
+{% endblock javascript %}
