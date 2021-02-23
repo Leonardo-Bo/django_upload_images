@@ -1,0 +1,90 @@
+html {
+    margin:0;
+	padding:0;
+	background:#f5f5f5;
+	color:#444;
+    overflow-y: scroll;
+    scrollbar-width: thin !important;
+    scrollbar-color: #343a40 #111 !important;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #f5f5f5;
+    scrollbar-width: thin !important;
+    scrollbar-color: #95a5a6 #dcdee0 !important;
+}
+
+.main {
+    margin-right: 440px;
+    margin-left: 25px;
+    margin-top: 75px;
+    font-size: 18px;
+    padding: 30px 50px;
+    text-align: justify;
+    background-color: #f5f5f5;
+}
+
+.sidenav {
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 360px;
+    position: fixed;
+    z-index: 1;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 80px;
+    padding-left: 20px;
+    text-align: left;
+}
+  
+.sidenav a {
+    padding: 16px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    right: 0;
+}
+  
+.sidenav a:hover {
+    color: #cbd5db
+}
+  
+.sidenav li a {
+    font-size: 17px;
+    padding-left: 5px;
+}
+
+.sidenav ul {
+    list-style:none !important;
+}
+
+.sidenav::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track:horizontal {
+    background: #dcdee0
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background-color: #95a5a6;
+}
+::-webkit-scrollbar-thumb:horizontal:hover{
+    background-color: #343a40;
+}
+
+::-webkit-scrollbar-track {
+    background: #111
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #343a40; 
+}
