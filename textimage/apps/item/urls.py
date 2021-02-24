@@ -7,5 +7,5 @@ urlpatterns = [
     path('edit-item/<int:pk>', UpdateItemView.as_view(), name='edit_item'), 
     path('detail-item/<int:pk>', DetailItemView.as_view(), name='detail_item'), 
     path('delete-item/<int:pk>', DeleteItemView.as_view(), name='delete_item'), 
-    path('edit-blogpost/<int:pk>/', DeleteImageView.as_view(), name='delete_image'), 
+    path('edit-item/<int:pk>/', DeleteImageView.as_view(), name='delete_image'), 
 ]

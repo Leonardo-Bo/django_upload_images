@@ -82,7 +82,7 @@ class DeleteImageView(DeleteView):
 
 class DeleteItemView(DeleteView):
     model = TextModel
-    template_name = 'delete_item.html'
+    template_name = 'detail_item.html'
     success_url = reverse_lazy('home')
     success_message = 'Item removed successfully'
 

@@ -8,7 +8,7 @@
     <div class="float-left">
         <small>
             <a href="{% url 'edit_item' item.id %}" class="btn btn-outline-warning btn-sm mr-4">Edit</a>
-            <a href="{% url 'delete_item' item.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+            <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
         </small>
     </div>
     <br><br/>
@@ -18,4 +18,8 @@
     <div class="border-top pt-3"></div>
     <br>
     {{ item.content | safe }}
+
+    <!-- Modal -->
+    {% include 'component/modal_delete_item.html' %}
+
 {% endblock content %}
