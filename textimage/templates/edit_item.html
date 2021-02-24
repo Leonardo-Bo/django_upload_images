@@ -43,7 +43,6 @@
         <input 
             type="text" 
             class="form-control" 
-            id="formGroupExampleInput" 
             name="title" 
             value="{{ form.title.value }}" 
             required
@@ -62,7 +61,6 @@
             <input 
                 class="btn btn-primary" 
                 type="submit" 
-                id="ajax_upload_images" 
                 name="upload_images" 
                 value="Upload"
             >
@@ -75,4 +73,6 @@
 {% endblock content %}
 
 {% block javascript %}
+    <script src="{% static "js/copy_url_image.js" %}"></script>
+    <script src="{% static "js/validate_item_fields.js" %}"></script>
 {% endblock javascript %}
