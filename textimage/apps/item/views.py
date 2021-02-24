@@ -6,6 +6,7 @@ from .forms import CreateItemForm, UpdateItemForm
 from django.contrib import messages
 import json
 from django.http import JsonResponse
+import shutil
 
 
 class HomeView(ListView):
@@ -90,6 +91,11 @@ class DeleteItemView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
+        dir_path = 'media/' + str(self.get_object().pk)
+        try:
+            shutil.rmtree(dir_path)
+        except OSError as e:
+            print("Error: %s : %s" % (dir_path, e.strerror))
         return super(DeleteItemView, self).delete(request, *args, **kwargs)
 
 
