@@ -18,7 +18,11 @@
         </div>
         <div class="row">
             <div class="col-4">
-                <button class="btn btn-outline-secondary btn-sm" onclick="copyToClipboard('{{ image.image.url }}')">Copy url</button>
+                <button 
+                    class="btn btn-outline-secondary btn-sm" 
+                    onclick="copyToClipboard('{{ image.image.url }}')">
+                    Copy url
+                </button>
             </div>
             <div class="col" style="padding-bottom: 30px;">
                 <form method="post" action="{% url 'delete_image' image.pk %}">

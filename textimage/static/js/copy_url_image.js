@@ -2,7 +2,7 @@ function copyToClipboard (str) {
     // Create new element
     var el = document.createElement('textarea');
     // Set value (string to be copied)
-    el.value = str;
+    el.value = '<img src="' + str + '" width=200px>';
     // Set non-editable to avoid focus and move outside of view
     el.setAttribute('readonly', '');
     el.style = {position: 'absolute', left: '-9999px'};

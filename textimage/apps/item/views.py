@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.urls.base import reverse, reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, View
 from .models import ImageModel, TextModel
 from .forms import CreateItemForm, UpdateItemForm
 from django.contrib import messages
+import json
+from django.http import JsonResponse
 
 
 class HomeView(ListView):
@@ -89,3 +91,12 @@ class DeleteItemView(DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
         return super(DeleteItemView, self).delete(request, *args, **kwargs)
+
+
+class ItemValidationView(View):
+    def post(self, request):
+        data = json.loads(request.body)
+        title = data['title']
+        if TextModel.objects.filter(title=title).exists():
+            return JsonResponse({'title_error': 'Ops... title already exists, choose another one'}, status=409)
+        return JsonResponse({'title_valid': True})
