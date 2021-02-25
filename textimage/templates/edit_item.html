@@ -60,15 +60,27 @@
 
         <label class="form-label">Upload images</label>
         <div class="form-inline">
-            <div style="display:inline-block; width: 500px;" id="provo">{{ form.images }}</div>
+            <div style="display:inline-block; width: 500px;" id="provo">
+                <input 
+                    type="file" 
+                    name="images" 
+                    class="form-control" 
+                    multiple="" 
+                    accept="image/*" 
+                    id="id_images"
+                />
+            </div>
             <span style="display:inline-block; width: 20px;"></span>
             <input 
                 class="btn btn-primary" 
                 type="submit" 
                 name="upload_images" 
                 value="Upload"
+                id="submit_btn"
             />
         </div>
+        <div class="invalid_feedback invalid-feedback" style="display:none"></div>
+        <p class="text-sm text-success pErr"></p>
 
         <br>
         <button class="btn btn-outline-success">Done</button>
@@ -77,6 +89,7 @@
 {% endblock content %}
 
 {% block javascript %}
-    <script src="{% static "js/copy_url_image.js" %}"></script>
-    <script src="{% static "js/validate_item_fields.js" %}"></script>
+    <script src="{% static 'js/copy_url_image.js' %}"></script>
+    <script src="{% static 'js/validate_item_fields.js' %}"></script>
+    <script src="{% static 'js/validate_upload_images.js' %}"></script>
 {% endblock javascript %}
